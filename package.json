@@ -1,0 +1,16 @@
+{
+  "name": "auto-pay-local",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "node --import tsx scripts/dev.mjs",
+    "start": "node apps/mock/dist/site-server.js",
+    "typecheck": "npm run typecheck --workspaces",
+    "build": "npm run build --workspaces"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1"
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+.tmp-explore/
+.env
+.env.*
+
+.agents/
+.codegraph/
+openspec/
+AGENTS.md

@@ -1,0 +1,12 @@
+services:
+  app:
+    image: ghcr.io/c4lnn/gpt-topup:latest
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8787:8787"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8787/api/runtime', { signal: AbortSignal.timeout(3000) }).then(async r => { if (!r.ok || (await r.json()).mock !== false) process.exitCode = 1 }).catch(() => { process.exitCode = 1 })"]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
